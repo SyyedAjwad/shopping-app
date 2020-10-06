@@ -10,6 +10,8 @@ export class CartComponent implements OnInit {
 
   cartData:any[] = [];
   totalPrice:number = 0;
+  placed :string=" ";
+  
 
   constructor(
     private sharedService: SharedService,
@@ -45,6 +47,24 @@ export class CartComponent implements OnInit {
     this.totalPrice = 0;
       this.cartData.forEach(res => {
         this.totalPrice += (res.price * res.quantity);
+
       });
   }
+  
+
+  addCoupon(Coupon: string) {
+    if (Coupon=='OSOS30') { 
+      this.totalPrice = this.totalPrice - (this.totalPrice*0.30);
+    }
+  }
+
+  orderPlaced(){
+    if(this.totalPrice==0){
+      this.placed ="Your Cart is Empty";
+    }
+    else{
+    this.placed ="Your Order is Placed Thank You";
+    }
+  }
+
 }

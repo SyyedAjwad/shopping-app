@@ -8,8 +8,8 @@
                         <tr>
                             <th>Product</th>
                             <th>Name</th>
-                            <th>Qty</th>
                             <th>Price</th>
+                            <th>Qty</th>
                             <th class="text-right"><span id="amount" class="amount">Amount</span> </th>
                         </tr>
                     </thead>
@@ -42,7 +42,16 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="4"></td><td align="right"><div class="btn btn-warning">Update Cart</div></td>
+                            <td colspan="4"> 
+                                 <label>Have coupon?</label>
+                                 <div class="button-container"> 
+                                 <input #Coupon
+                                 (keyup.enter)="addCoupon(Coupon.value)"
+                                 (blur)="addCoupon(Coupon.value); Coupon.value='' " placeholder="Ex: OSOS30">
+                                </div>
+                            </td>
+                            <td align="right">
+                                <div class="button-container"><button (click)="addCoupon(Coupon.value)" class="btn btn-warning">Apply Coupon</button></div></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -51,7 +60,7 @@
     </div>
 <br>
     <div class="row">
-        <div class="col-sm-7"></div>
+        <div class="col-sm-7"><h2>{{placed}}</h2></div>
         <div class="col-sm-5">
             <div class="carts-t">
                 <div class="heading">
@@ -87,7 +96,9 @@
                 </div>
                 <br>
 
-                <div class="btn btn-warning">Proceed to Checkout</div>
+                
+                <button class="btn btn-warning" type="submit" (click)="orderPlaced()">Proceed to Checkout</button>
+                <div class="col-sm-7"></div>
             </div>
         </div>
     </div>
