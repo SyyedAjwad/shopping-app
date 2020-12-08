@@ -13,7 +13,10 @@ button:focus,
 	background-color: #fff;
 }
 .table{
-    border: 1px solid #ddd;
+    border: 1px solid #000;
+    th{
+        border: 1px solid #000;
+    }
 }
 
 .table tr,
@@ -49,9 +52,9 @@ button:focus,
 }
 .img-prdct{
 	width: 50px;
-	height: 50px;
-	background-color: #5161ce;
-	border-radius: 4px;
+	height: auto;
+	// background-color: #5161ce;
+	// border-radius: 4px;
 }
 .img-prdct img{
   width: 100%;
@@ -61,7 +64,7 @@ button:focus,
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
     justify-content: center;
     width: 100%;
 }
@@ -70,15 +73,15 @@ button:focus,
     justify-content: center;
     align-items: initial;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
 }
 
 .left-side {
     text-align: center;
     width: 50%;
-    /* border: 1px solid #ddd; */
-    border-right: 1px solid #ddd;
-    background: #e9ecef;
+    /* border: 1px solid #000; */
+    border-right: 1px solid #000;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,4 +95,32 @@ button:focus,
 
 .col-sm-7{
     color: #ce0095;
+}
+
+.modal-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img{
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    h2{
+        color: #000;
+    }
+
+}
+.cart-wrapper{
+    background: #2980B9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: auto;
+min-height: 100vh;
+    // overflow: hidden;
+    padding: 50px 0px 40px 0px;
+    color: black;
 }

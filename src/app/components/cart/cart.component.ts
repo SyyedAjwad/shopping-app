@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
     private changeRef: ChangeDetectorRef
     ) {
       this.sharedService.getCartProducts().subscribe(res => {
-        debugger
+      
         this.cartData = JSON.parse(JSON.stringify(res));
         this.getTotalPrice();
       });
@@ -35,10 +35,16 @@ export class CartComponent implements OnInit {
           this.sharedService.updateCartData(item , index);
         break;
       case 'decrease':
-        if(item['quantity'] == 1) return;
-
+        if(item['quantity'] == 1)
+        {
+          console.log(item);
+          
+          return;
+        } 
+        console.log(item);
+        
         item['quantity'] -= 1;
-        this.sharedService.updateCartData(item , index);
+        this.sharedService.removeCartData(item , index);
         break;
     }
   }
@@ -47,23 +53,25 @@ export class CartComponent implements OnInit {
     this.totalPrice = 0;
       this.cartData.forEach(res => {
         this.totalPrice += (res.price * res.quantity);
-
+        // this.totalPrice = this.totalPrice+(res.price*res.quantity) ;
       });
   }
   
 
   addCoupon(Coupon: string) {
-    if (Coupon=='OSOS30') { 
-      this.totalPrice = this.totalPrice - (this.totalPrice*0.30);
+    if (Coupon=='TEST50') { 
+      this.totalPrice = this.totalPrice - (this.totalPrice*0.50);
     }
   }
-
+ EmptyOrNot : boolean;
   orderPlaced(){
     if(this.totalPrice==0){
-      this.placed ="Your Cart is Empty";
+     // alert("Your Cart is Empty");
+      this.EmptyOrNot = true;
     }
     else{
-    this.placed ="Your Order is Placed Thank You";
+    //alert("Thank You for placing order");
+    this.EmptyOrNot = false;
     }
   }
 

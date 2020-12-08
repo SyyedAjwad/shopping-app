@@ -2,7 +2,7 @@
     
     <h4 class="text-center">
         <br>
-        All Products
+        Available Products
     </h4>
     <ul class="product-list">
 
@@ -14,14 +14,17 @@
                     </div>
                     <figcaption class="product-info-description">
                         <h2 class="title">{{item.name}}</h2>
-                        <p class="description">{{item.description}}</p>
+                        <!-- <p class="description">{{item.description}}</p> -->
                     </figcaption>
                     <div class="price-box">
                         <div class="price">
                         
-                            <span class="price-info">{{item.price}}</span>
+                            <span class="price-info">Price: {{item.price}}</span>
                         </div>
-                        <button  class="btn btn-buy btn-sm" (click)="addToCart(item)">Add to Cart <i class="fas fa-arrow-right"></i></button>
+                
+                    </div>
+                    <div>
+                        <button  class="btn btn-buy btn-sm btn-block" (click)="addToCart(item)">Add to Cart </button>
                     </div>
                 </figure>
             </a>
@@ -29,3 +32,5 @@
   
     </ul>
 </div>
+
+
